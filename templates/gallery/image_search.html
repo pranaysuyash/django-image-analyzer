@@ -1,0 +1,8 @@
+<form action="{% url 'image_search' %}" method="GET">{% csrf_token %}{{ form }}">
+    <input type="text" name="query" placeholder="search tags...">
+    <button type="submit">Search</button>
+</form>
+
+{% for image in matching_images %}
+<div><img src="{{image.image.url}}" alt="Image"></div>
+{%endfor%}

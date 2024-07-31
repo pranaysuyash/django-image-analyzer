@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Upload Successful</title>
+    </head>
+
+    <body>
+        <h2>Image Upload Successful</h2>
+        <p>Your image has been successfully uploaded and analyzed.</p>
+        {% if image %}
+        <h3>Image Details:</h3>
+        <p>Filename: {{ image.image.name }}</p>
+        <p>Tags: {{ image.tags|join:", " }}</p>
+        <img src="{{ image.image.url }}" alt="Uploaded Image" style="max-width: 300px;">
+        {% endif %}
+        <p><a href="{% url 'image_upload' %}">Upload another image</a></p>
+    </body>
+
+</html>
